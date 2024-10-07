@@ -4,9 +4,12 @@ import customtkinter as ctk
 ctk.set_appearance_mode('dark')
 
 def converter():
-    dolar = entry.get()
-    real = (float(dolar) * 5.50)
-    label.configure(text=(f'${dolar} = R${real:.2f}'))
+    if entry.get() == '' or ',' in entry.get():
+      label.configure(text='Digite um valor válido')
+    else:
+      dolar = entry.get()
+      real = (float(dolar) * 5.50)
+      label.configure(text=(f'${dolar} = R${real:.2f}'))
 
 #criar janela
 janela = ctk.CTk()
